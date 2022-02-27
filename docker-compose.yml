@@ -35,7 +35,5 @@ services:
       - POSTGRES_USER=gittut
       - POSTGRES_PASSWORD=dfg3hb75gFF!ewt1
       - POSTGRES_DB=gittut
-    networks:
-      - gittut
     volumes:
        - /opt/docker/gittut/postgres:/var/lib/postgresql/data
