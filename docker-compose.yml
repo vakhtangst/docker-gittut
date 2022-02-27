@@ -27,15 +27,15 @@ services:
       - "3001:3000"
     depends_on:
        - db
-   db:
-     image: dockerhub.sliton.ru/postgres:13.6
-     container_name: gittut_db
-     restart: always
-     environment:
-       - POSTGRES_USER=gittut
-       - POSTGRES_PASSWORD=dfg3hb75gFF!ewt1
-       - POSTGRES_DB=gittut
-     networks:
-       - gitea
-     volumes:
+  db:
+    image: dockerhub.sliton.ru/postgres:13.6
+    container_name: gittut_db
+    restart: always
+    environment:
+      - POSTGRES_USER=gittut
+      - POSTGRES_PASSWORD=dfg3hb75gFF!ewt1
+      - POSTGRES_DB=gittut
+    networks:
+      - gittut
+    volumes:
        - /opt/docker/gittut/postgres:/var/lib/postgresql/data
