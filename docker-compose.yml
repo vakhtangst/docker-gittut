@@ -27,6 +27,8 @@ services:
       - "3001:3000"
     depends_on:
        - db
+    networks:
+      - gittut
   db:
     image: dockerhub.sliton.ru/postgres:13.6
     container_name: gittut_db
@@ -37,3 +39,8 @@ services:
       - POSTGRES_DB=gittut
     volumes:
        - /opt/docker/gittut/postgres:/var/lib/postgresql/data
+    networks:
+      - gittut
+networks:
+  gittut:
+    driver: bridge
