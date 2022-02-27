@@ -1,0 +1,41 @@
+version: "3"
+
+networks:
+  gitea:
+    external: false
+
+services:
+  server:
+    image: dockerhub.sliton.ru/gitea/gitea:1.16.2
+    container_name: gittut
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__database__DB_TYPE=postgres
+      - GITEA__database__HOST=db:5432
+      - GITEA__database__NAME=gittut
+      - GITEA__database__USER=gittut
+      - GITEA__database__PASSWD=dfg3hb75gFF!ewt1
+    restart: always
+    networks:
+      - gitea
+    volumes:
+      - /opt/docker/gittut:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3001:3000"
+    depends_on:
+       - db
+   db:
+     image: dockerhub.sliton.ru/postgres:13.6
+     container_name: gittut_db
+     restart: always
+     environment:
+       - POSTGRES_USER=gittut
+       - POSTGRES_PASSWORD=dfg3hb75gFF!ewt1
+       - POSTGRES_DB=gittut
+     networks:
+       - gitea
+     volumes:
+       - /opt/docker/gittut/postgres:/var/lib/postgresql/data
