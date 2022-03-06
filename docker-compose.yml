@@ -6,7 +6,7 @@ networks:
 
 services:
   server:
-    image: dockerhub.sliton.ru/gitea/gitea:1.16.2
+    image: dockerhub.sliton.ru/gitea/gitea:1.16.3
     container_name: gittut
     environment:
       - USER_UID=1000
