@@ -14,7 +14,7 @@ services:
     networks:
       - gitea
     volumes:
-      - /opt/docker/gittut:/data
+      - /storage0/docker_mounts/gittut:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
