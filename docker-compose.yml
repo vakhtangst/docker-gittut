@@ -6,7 +6,7 @@ networks:
 
 services:
   server:
-    image: dockerhub.sliton.ru/gitea/gitea:1.16.4
+    image: dockerhub.sliton.ru/gitea/gitea:1.16.5
     container_name: gittut
     env_file:
       - ./.env
