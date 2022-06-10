@@ -5,6 +5,16 @@ networks:
     external: false
 
 services:
+  pgadmin:
+    container_name: matrix-pgadmin4
+    image: dpage/pgadmin4:6.9
+    restart: always
+    ports:
+      - "5051:80"
+    env_file:
+      - ./.env
+    networks:
+      - gittut
   server:
     image: dockerhub.sliton.ru/gitea/gitea:1.16.5
     container_name: gittut
