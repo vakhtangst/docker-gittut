@@ -12,14 +12,14 @@ services:
     ports:
       - "5051:80"
     env_file:
-      - ./.env
+      - ./stack.env
     networks:
       - gittut
   server:
     image: gitea/gitea:1.17.2
     container_name: gittut
     env_file:
-      - ./.env
+      - ./stack.env
     restart: always
     networks:
       - gitea
@@ -38,7 +38,7 @@ services:
     container_name: gittut_db
     restart: always
     env_file:
-      - ./.env
+      - ./stack.env
     volumes:
       - /opt/docker/gittut/postgres:/var/lib/postgresql/data
     networks:
