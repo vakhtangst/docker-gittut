@@ -7,7 +7,7 @@ networks:
 services:
   pgadmin:
     container_name: matrix-pgadmin4
-    image: dpage/pgadmin4:6.9
+    image: dpage/pgadmin4:6.14
     restart: always
     ports:
       - "5051:80"
@@ -16,7 +16,7 @@ services:
     networks:
       - gittut
   server:
-    image: dockerhub.sliton.ru/gitea/gitea:1.16.5
+    image: gitea/gitea:1.17.2
     container_name: gittut
     env_file:
       - ./.env
@@ -34,7 +34,7 @@ services:
     networks:
       - gittut
   db:
-    image: dockerhub.sliton.ru/postgres:13.6
+    image: postgres:14
     container_name: gittut_db
     restart: always
     env_file:
