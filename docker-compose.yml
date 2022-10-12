@@ -6,7 +6,7 @@ networks:
 
 services:
   pgadmin:
-    container_name: matrix-pgadmin4
+    container_name: gittut-pgadmin4
     image: dpage/pgadmin4:6.14
     restart: always
     ports:
@@ -50,5 +50,5 @@ networks:
 volumes:
   postgresql-data:
     driver: local
-  gittut-data:
+  repos:
     driver: local
