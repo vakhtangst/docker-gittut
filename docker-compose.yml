@@ -24,7 +24,7 @@ services:
     networks:
       - gitea
     volumes:
-      - /storage0/docker_mounts/gittut:/data
+      - gittut-data:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
@@ -40,9 +40,15 @@ services:
     env_file:
       - ./stack.env
     volumes:
-      - /opt/docker/gittut/postgres:/var/lib/postgresql/data
+      - postgresql-data:/var/lib/postgresql/data
     networks:
       - gittut
 networks:
   gittut:
     driver: bridge
+
+volumes:
+  postgresql-data:
+    driver: local
+  gittut-data:
+    driver: local
