@@ -24,7 +24,7 @@ services:
     networks:
       - gitea
     volumes:
-      - gittut-data:/data
+      - data:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
@@ -50,5 +50,5 @@ networks:
 volumes:
   postgresql-data:
     driver: local
-  repos:
+  data:
     driver: local
